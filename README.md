@@ -20,6 +20,7 @@ It can tell us how well a problem is solved.
 ##### 4 Rule Book
 1. Worst Case
 1. Remove Constants
-1. Different terms for inputs
+1. Different terms for inputs -->
+O(Arrayinput + ArrayInput2)
 1. Drop Non Dominants
 
