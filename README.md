@@ -16,4 +16,4 @@ It can tell us how well a problem is solved.
  and larger
 ##### Big O notations
 1. **O(n)** Linear time O(10),time O(1000) 
-
+1. **O(1)** Constant time
