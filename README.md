@@ -22,5 +22,15 @@ It can tell us how well a problem is solved.
 1. Remove Constants
 1. Different terms for inputs -->
 O(Arrayinput + ArrayInput2)
-1. Drop Non Dominants
 
+
+Note:
+> **An easy rule of thumb is any step that happens in the same indentation. So one after another, you add. 
+![](Same%20indentations.png)
+And anything that happens with indentation that is nested. You multiply, so, again, different inputs should have different variables.
+![](Different%20Indentation.png)
+**
+
+**1. Drop Non Dominants**
+![](Dominant%20Term.png)
+O(n^2)
