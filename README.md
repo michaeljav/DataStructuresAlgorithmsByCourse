@@ -1,2 +1,12 @@
 # DataStructuresAlgorithmsByCourse
 Udemy Master the Coding Interview: Data Structures + Algorithms
+
+
+##### 1. Big O 
+
+**Official term:** Asymptotic Analysis:
+It can tell us how well a problem is solved.
+##### What is good or clean code?
+1. **Readable**: can others understand.
+1. **Scalable**: Big O notation is what allows us to measure this idea of scalable code that can scale.
+![](BigOchart.png)![](BigOchart.png)
