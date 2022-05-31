@@ -9,4 +9,11 @@ It can tell us how well a problem is solved.
 ##### What is good or clean code?
 1. **Readable**: can others understand.
 1. **Scalable**: Big O notation is what allows us to measure this idea of scalable code that can scale.
-![](BigOchart.png)![](BigOchart.png)
+![](BigOchart.png)
+* A runtime  is simply how long  something takes to run.
+
+* That's what scalability means as things grow larger
+ and larger
+##### Big O notations
+1. **O(n)** Linear time O(10),time O(1000) 
+
