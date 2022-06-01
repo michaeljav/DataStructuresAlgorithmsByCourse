@@ -1,14 +1,34 @@
-//Log all pairs of array
-const boxes = ['a','b','c','d','e'];
-function logAllPairsOfArray(array){
-for (let index = 0; index < boxes.length; index++) {    
-   // console.log(element);
-    for (let index2 = 0 ; index2 < boxes.length; index2++) {
-          let element = boxes[index];
-          let element2 = boxes[index2];
-          console.log(element ,element2 );           
+function hasPairWithSum(arr, sum) {
+  var len = arr.length;
+  for (let i = 0; i < len-1; i++) {
+    for (let j =  i+1; j < len; j++) {
+     if (arr[i] + arr[j] === sum) {
+       return true;
+     }
     }
+    
   }
+
+  return false;
 }
-logAllPairsOfArray(boxes);
-//O(n*n ) ---> O(n^2)
+
+//Better
+function hasPairWithSum2(arr, sum) {
+  const mySet = new Set();
+  const len = arr.length;
+  for (let i = 0; i < len; i++) {
+    console.log(sum,arr[i],sum - arr[i]);
+    if (mySet.has(arr[i])) {
+    
+      return true;
+    }
+    // console.log(sum,arr[i],sum - arr[i]);
+    mySet.add(sum - arr[i]);
+    
+  }
+  return false;
+}
+
+
+ r =hasPairWithSum2([6,4,3,2,1,7], 9);
+console.log(r);
