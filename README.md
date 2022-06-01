@@ -73,3 +73,24 @@ To solve coding problems:
 * BFS + DFS (Searching)
 * Recursion,etc
 
+
+
+##### Data Structures
+Is a collections of values
+##### Algorithms
+Are the steps or processes we put into place to manipulate these collection of values.
+
+**Data Structures + Algorithms = Programs**
+
+Data Structures
+Is a collections of values.
+
+##### Operations On Data Structures
+* Access
+* Searching
+* Insertion
+* Deletion
+* Traversal
+
+* Sorting
+
