@@ -1,34 +1,21 @@
-function hasPairWithSum(arr, sum) {
-  var len = arr.length;
-  for (let i = 0; i < len-1; i++) {
-    for (let j =  i+1; j < len; j++) {
-     if (arr[i] + arr[j] === sum) {
-       return true;
-     }
-    }
-    
-  }
+//if system is 32bit every variable uses
+//4 shelves of memory to store one variable
+//8 bit is a byte
+//4 bytes is 32 bits in memory
+const strings =['a','b','c','d'];
 
-  return false;
-}
+strings[2];// o(1)
+strings.push('e'); //O(1)
+//remove last item
+strings.pop(); //O(1)
+strings.pop(); //O(1)
 
-//Better
-function hasPairWithSum2(arr, sum) {
-  const mySet = new Set();
-  const len = arr.length;
-  for (let i = 0; i < len; i++) {
-    console.log(sum,arr[i],sum - arr[i]);
-    if (mySet.has(arr[i])) {
-    
-      return true;
-    }
-    // console.log(sum,arr[i],sum - arr[i]);
-    mySet.add(sum - arr[i]);
-    
-  }
-  return false;
-}
+//Add in the biggin
+//unshift
+strings.unshift('x'); //O(n)
 
+//inser in the middle
+//splice
+strings.splice(2,0,'Alian');//O(n/2) --> O(n)
 
- r =hasPairWithSum2([6,4,3,2,1,7], 9);
-console.log(r);
+console.log(strings);

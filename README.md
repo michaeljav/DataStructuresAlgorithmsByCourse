@@ -86,11 +86,21 @@ Data Structures
 Is a collections of values.
 
 ##### Operations On Data Structures
-* Access
+* Access (lookup00)
 * Searching
 * Insertion
 * Deletion
 * Traversal
-
 * Sorting
+
+##### Data Structures
+* Arrays: 
+//if system is 32bit every variable uses
+//4 shelves of memory to store one variable
+//8 bit is a byte
+//4 bytes of 8bit each one  is 32 bits in memory
+
+![](Array%20Memory.png)
+
+
 
