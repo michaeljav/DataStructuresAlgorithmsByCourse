@@ -1,45 +1,28 @@
-//Reference type
-//[] === []   false
-//var object1 ={ value: 10}
-//var object2  = object1;  //true
-//context vs scope
-//scope
-//function b(){} new scope
-const object4 ={
-  a: function(){
-    console.log(this);
-      
-  }
-  }
-  object4.a();
-  console.log(this);
+//Reverse string
 
-//instantiation 
-
-class Player {
-  constructor(name, type){
-    this.name = name;
-    this.type = type;
-  }
-  introduce(){
-    console.log(`Hi I am ${this.name}, I'm a ${this.type}`);
-  }
+function reverse(str) {
+//check input
+if (!str || str.length < 2 || typeof str !== 'string') {
+  return 'hmm that is not good';
 }
 
+  let string="";
+  let  arry = str.split('');
 
-class Wizard extends Player {
-  constructor(name, type) {
-    super(name,type);
+  for (let index = arry.length-1; index >= 0; index--) {
+    const element = arry[index];
+    string += element;    
   }
-  play(){
-    console.log(`WEEEEE I am a ${this.type}`);
-  }
+  return  string;
+
 }
 
-const wizard1 = new Wizard('Shelly', 'Healer');
-const wizard2 = new Wizard('Shawn', 'Dark Magic');
+let stri ='Hi My name is Andrei';
 
-wizard1.introduce();
-wizard1.play();
-wizard2.introduce();
-wizard2.play();
+let str = reverse(stri);
+
+function reverse2(str){
+  return str.split('').reverse().join('');
+}
+console.log(str);
+console.log(reverse2(stri));;  
