@@ -1,52 +1,51 @@
-//Implementing a array
+//[0,3,4,4,6,30,31]
 
-class MyArray {
-  constructor(){
-    this.length =0;
-    this.data ={};
-  }
-  get(index) {
-    return this.data[index];
-  }
+function mergeSortedArrays(array1, array2){
+  const mergedArray = [];
 
-  push(item) {
-    this.data[this.length] = item;
-    this.length++;
-    return this.length;
-  }
-
-  pop(){
-    const lastItem = this.data[this.length - 1];
-    delete this.data[this.length -1];
-    this.length--;
-    return lastItem;
-  }
-
-  delete(index) {
-    const item = this.data[index];
-    this.shiftItems(index);
-    return item;
-  }
+  let array1Item = array1[0];
+  let array2Item = array2[0];
+  let i = 1;
+  let j = 1;
   
-  shiftItems(ind) {
-    for (let index = ind; index < this.length - 1; index++) {
-      console.log(index);
-      this.data[index] = this.data[index+1];      
-    }
-    delete this.data[this.length-1];
-    this.length--;
-  }
-
+//Check input
+if(array1.length === 0){
+  return array2
+}
+if(array2.length === 0){
+  return array1
 }
 
-const newArray = new MyArray();
-newArray.push('Miahe')
-newArray.push('you')
-newArray.push('I')
-newArray.push('Mi')
-console.log(newArray);
-// newArray.pop();
-let removed=newArray.delete(0);
-console.log(removed);
-console.log(newArray);
-//console.log(newArray.get(0));
+
+ let t=0;
+  while(array1Item  || array2Item){
+    console.log( array1Item,array2Item);
+
+      if( !array2Item || array1Item < array2Item){
+        mergedArray.push(array1Item);
+        array1Item = array1[i];
+        i++;
+      }else {
+        mergedArray.push(array2Item);
+        array2Item = array2[j];
+        j++;
+      }
+
+    //console.log(`object ${array1Item} ${array2Item}`);
+    
+    t++;
+    if (t == 70) {
+      break;
+    }
+     
+  }
+ 
+  // console.log(undefined)
+  // console.log(!undefined)
+  // console.log(undefined < 6)
+  return mergedArray;
+}
+
+// let me=mergeSortedArrays([0,3,4,31],[4,6,30]);
+let me=mergeSortedArrays([0,3,4,31],[4,6,30,31,32]);
+console.log(me);
