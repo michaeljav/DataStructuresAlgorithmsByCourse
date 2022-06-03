@@ -130,3 +130,13 @@ const object4 ={
 
 
 
+* **Hash Tables: key, value**
+There are many  ways to call this data structure: hash maps, maps, unordered maps, dictionaries, objects.
+
+in javascript:
+
+map()
+
+sets()
+
+
