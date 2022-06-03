@@ -1,21 +1,45 @@
-//if system is 32bit every variable uses
-//4 shelves of memory to store one variable
-//8 bit is a byte
-//4 bytes is 32 bits in memory
-const strings =['a','b','c','d'];
+//Reference type
+//[] === []   false
+//var object1 ={ value: 10}
+//var object2  = object1;  //true
+//context vs scope
+//scope
+//function b(){} new scope
+const object4 ={
+  a: function(){
+    console.log(this);
+      
+  }
+  }
+  object4.a();
+  console.log(this);
 
-strings[2];// o(1)
-strings.push('e'); //O(1)
-//remove last item
-strings.pop(); //O(1)
-strings.pop(); //O(1)
+//instantiation 
 
-//Add in the biggin
-//unshift
-strings.unshift('x'); //O(n)
+class Player {
+  constructor(name, type){
+    this.name = name;
+    this.type = type;
+  }
+  introduce(){
+    console.log(`Hi I am ${this.name}, I'm a ${this.type}`);
+  }
+}
 
-//inser in the middle
-//splice
-strings.splice(2,0,'Alian');//O(n/2) --> O(n)
 
-console.log(strings);
+class Wizard extends Player {
+  constructor(name, type) {
+    super(name,type);
+  }
+  play(){
+    console.log(`WEEEEE I am a ${this.type}`);
+  }
+}
+
+const wizard1 = new Wizard('Shelly', 'Healer');
+const wizard2 = new Wizard('Shawn', 'Dark Magic');
+
+wizard1.introduce();
+wizard1.play();
+wizard2.introduce();
+wizard2.play();
