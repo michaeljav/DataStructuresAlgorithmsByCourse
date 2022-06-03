@@ -99,6 +99,32 @@ Is a collections of values.
 //4 shelves of memory to store one variable
 //8 bit is a byte
 //4 bytes of 8bit each one  is 32 bits in memory
+>Type of Arrays: Static Array and Dynamic  array.
+
+**//Reference type**
+* //[] === []   false
+
+//var object1 ={ value: 10}
+//var object2  = object1;  //true
+//context vs scope
+//scope
+//function b(){} new scope
+//COntext: is the object environment that we're in.
+this === window  true
+this: is just refers to what object it's inside of.
+
+* This: can be in another object.
+const object4 ={
+    a: function(){
+        Console.log(this);
+        
+    }
+    }
+
+
+**//instantiation** 
+
+
 
 ![](Array%20Memory.png)
 
