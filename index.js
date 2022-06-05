@@ -1,64 +1,88 @@
-//HashTable
-class HashTable {
-  constructor(size) {
-    this.data = new Array(size);
-  }
-  _hash(key){
-    let hash =0;
-    for (let i = 0; i < key.length; i++) {
-        hash = (hash + key.charCodeAt(i) * i) % this.data.length;
-      // console.log(hash);
-    }
-    return hash;
-  }
+//Google Question
+//Given an array = [2,5,1,2,3,5,1,2,4]: 
+//It should return 2
 
-  set(key, value) {
-    let address =this._hash(key);
-    if (!this.data[address]) {
-      this.data[address]=[];
-    }
+//Given an array = [2,1,1,2,3,5,1,2,4]:
+//It should return 1
 
-    this.data[address].push([key, value]);
-    return this.data;
-  }
+//Given an array = [2,3,4,5]:
+//It should return undefined
 
-  get(key){
-    let address =this._hash(key);
-    const currentBucket = this.data[address];
-    // console.log(currentBucket);
-    
-    if (currentBucket) {
-      for (let i = 0; i < currentBucket.length; i++) {
-        
-        if (currentBucket[i][0] === key) {
-           return currentBucket[i][1];
-        }
-        
-      }
-    
-    }
-    return undefined;
-  }
 
-  keys(){
-    const keysArray =[];
-    for (let i = 0; i < this.data.length; i++) {
-        if (this.data[i]) {
-          keysArray.push(this.data[i][0][0]);
-        }
-      
-    }
-    return keysArray;
+//no work very well with the second example
+function FirstRecurringCharacter(arr){
+  
+  for (let i = 0; i < arr.length; i++) {    
+    for (let j = i+1; j < arr.length; j++) {
+      const elementI = arr[i];
+      const elementJ = arr[j];
+      if (elementI === elementJ) {
+        return elementI;
+      }      
+    }    
   }
+  return undefined;
 }
 
-const myHashTable = new HashTable(50);
-// myHashTable.set('grapes', 10000);
-// myHashTable.get('grapes');
- myHashTable.set('grapes',10000);
- myHashTable.set('apples',10000);
- myHashTable.set('apples',50000);
- myHashTable.get('apples');
-  let o =myHashTable.get('grapes');
-  console.log('o');
-  console.log(myHashTable.keys());
+//O(n^2) time complexity
+//O(1)  space complexity  
+
+let v = FirstRecurringCharacter([2,5,1,2,3,5,1,2,4]);
+// console.log(v);
+ v = FirstRecurringCharacter([2,1,1,2,3,5,1,2,4]);
+// console.log(v);
+
+function FirstRecurringCharacter2(arr) {
+  const map = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    if(map[element]){
+      return element;
+    }else{
+   
+      map[element]=element;
+    }    
+  }
+  return undefined;
+}
+//Time complexity O(n)
+//Space Complexity O(n) : increase the memory
+ v = FirstRecurringCharacter2([2,5,1,2,3,5,1,2,4]);
+ v = FirstRecurringCharacter2([2,1,1,2,3,5,1,2,4]);
+// console.log(v);
+
+
+//IT IS INCOMPLETE TRYING TO MAKE IT CORRECT LIKE NUMBER 2 USING MAP
+function FirstRecurringCharacter3(arr){
+  let mapStepNextRecur={};
+  let steps=0;
+  for (let i = 0; i < arr.length; i++) {  
+      if (!mapStepNextRecur[arr[i]]) {
+        mapStepNextRecur[arr[i]]=0;
+      }
+
+    for (let j = i+1; j < arr.length; j++) {
+      const elementI = arr[i];
+      const elementJ = arr[j];
+      ++steps;
+      if (elementI === elementJ) {
+        mapStepNextRecur[arr[i]]=steps;
+        steps = 0;
+        
+
+        break;
+        //return elementI;
+      }  
+    }    
+  }
+
+
+  return undefined;
+}
+
+
+v = FirstRecurringCharacter3([2,5,1,2,3,5,1,2,4]);
+// console.log(v);
+ v = FirstRecurringCharacter3([2,1,1,2,3,5,1,2,4]);
+console.log(v);

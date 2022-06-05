@@ -139,4 +139,7 @@ map()
 
 sets()
 
+**type coercion javascript**: Undefined == 0 inside if().
+Type coercion is the automatic or implicit conversion of values from one data type to another. For example, converting a string value to an equivalent number value. It is also known as type conversion.
+
 
