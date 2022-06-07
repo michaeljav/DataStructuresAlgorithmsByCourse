@@ -94,7 +94,7 @@ Is a collections of values.
 * Sorting
 
 ##### Data Structures
-* Arrays: 
+* **ARRAYS:** 
 //if system is 32bit every variable uses
 //4 shelves of memory to store one variable
 //8 bit is a byte
@@ -130,7 +130,7 @@ const object4 ={
 
 
 
-* **Hash Tables: key, value**
+* **HASH TABLES: KEY, VALUE**
 There are many  ways to call this data structure: hash maps, maps, unordered maps, dictionaries, objects.
 
 in javascript:
@@ -143,3 +143,5 @@ sets()
 Type coercion is the automatic or implicit conversion of values from one data type to another. For example, converting a string value to an equivalent number value. It is also known as type conversion.
 
 
+##### LINKED LISTS
+Operations:append,prepend
