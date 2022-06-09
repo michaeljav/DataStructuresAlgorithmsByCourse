@@ -15,7 +15,12 @@
 //   }
 // }
 
-
+class Node {
+  cunstructor(value) {
+    this.value = value;
+    this.next  = null;
+  }
+}
 class LinkedList {
   constructor(value){
     this.head ={
@@ -27,10 +32,7 @@ class LinkedList {
   }
 
   append(newValue){    
-    let newNode = {
-      value: newValue,
-      next: null
-    };
+    const newNode =  new Node(newValue);
     
     this.tail.next= newNode;
     this.tail = newNode;
@@ -39,10 +41,7 @@ class LinkedList {
   }
 
   prepend(value) {
-    let newNode = {
-      value:value,
-      next:null
-    }
+    const newNode =  new Node(newValue);
     newNode.next = this.head;
     this.head = newNode;
     this.length++;
