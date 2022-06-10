@@ -61,16 +61,23 @@ class LinkedList {
 
   insert(index, value){
     //check params
+    // debugger
+    if (index <= 0) {
+      this.prepend(value);
+      return this;
+    }
     
-    if (index >= this.length) {
-      return;
+    if (index >= this.length-1) {
+      this.append(value);
+      return this;
     }
   //  debugger;
 
     const newNode = new Node(value);
     
+  
 
-    /**ESTO  ES LA EXPLICACION DE COMO FUNCIONA LA INSERCION */
+    /**PRIMERA  PRUEBA  ESTO  ES LA EXPLICACION DE COMO FUNCIONA LA INSERCION */
     /*
     //******Insertaré en el segundo nodo el nuevo nodo****
     //aqui estan todos los nodos 10-->5-->16-->20 || insertar segundo nodo 999
@@ -93,18 +100,40 @@ class LinkedList {
     newNode.next = SecondNodeForward;
     */
  
+    /*    
+    SEGUNDO EJEMPLO DE REFERENCIA
+    */
+
+    // debugger;
+    // let  leader = this.head;
+    // let counter = 0;
+    // //ATRAVIESO LOS OBJETOS DESDE LA CABEZA
+    // //PERO  EL THIS.HEAD TIENE TODOS SUS OBJETOS
+    // //PERO YO ME POSICIONO EN EL INDEX DESDE DONDE VOY A 
+    // //INSERTAR.
+    
+    // while(counter != index) {
+    //   leader = leader.next;
+    //    counter++;
+    // }
+    // const holdingPointer = leader.next;
+    
+    // leader.next = newNode;
+    // newNode.next = holdingPointer;
+    /**Fin DEL SEGUNDO EJEMPLO  */
+
+
+//  debugger
     
     //Reference to the head
-    //10-->5__-->16-->20
+    // 10-->5__-->16-->20
     const leader = this.traverseToIndex(index-1); 
     // 16-->20
     const holdingPointer = leader.next;
     // //10-->5-->99-->null
     leader.next = newNode;
      //10-->5-->99-->16-->20
-    newNode.next = holdingPointer;
-
-
+    newNode.next = holdingPointer; 
     this.length++;
     return this.printList();    
 
@@ -113,6 +142,7 @@ class LinkedList {
   traverseToIndex(index) {
     //check params
     let counter = 0;
+   
     
     let currentNode = this.head;
     while (counter !== index) {
@@ -133,7 +163,7 @@ myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.append(20);
 // myLinkedList.prepend(1);
-myLinkedList.insert(2,999);
+myLinkedList.insert(1,999);
 
 
 console.log(myLinkedList.printList());
