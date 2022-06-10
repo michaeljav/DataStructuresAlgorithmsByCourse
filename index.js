@@ -142,15 +142,32 @@ class LinkedList {
   traverseToIndex(index) {
     //check params
     let counter = 0;
-   
-    
     let currentNode = this.head;
     while (counter !== index) {
       currentNode = currentNode.next;
       counter++;
     }
-
     return currentNode;
+  }
+
+  remove(index){
+   //check params
+
+   if(index <= 0){
+    let leader = this.head;
+    this.head = leader.next;
+    this.length--;
+    return this.printList();
+   }
+   if(index >= this.length){
+    index = this.length -1;    
+   }
+
+     const leader = this.traverseToIndex(index - 1 );
+     const unwantedNode = leader.next;
+     leader.next = unwantedNode.next;
+     this.length--;
+    return this.printList();
   }
 
 
@@ -165,9 +182,12 @@ myLinkedList.append(20);
 // myLinkedList.prepend(1);
 myLinkedList.insert(1,999);
 
-
 console.log(myLinkedList.printList());
+console.log(myLinkedList.remove(0));
+
+
+// console.log(myLinkedList.printList());
 
 
 // console.log(myLinkedList);
-console.log(myLinkedList.prepend(0));
+// console.log(myLinkedList.prepend(0));
