@@ -19,13 +19,15 @@ class Node {
   constructor(value) {
     this.value = value;
     this.next  = null;
+    this.prev = null;
   }
 }
-class LinkedList {
+class DoublyLinkedList {
   constructor(value){
     this.head ={
       value: value,
-      next:null
+      next:null,
+      prev:null
     }
     this.tail = this.head;
     this.length = 1;
@@ -33,7 +35,7 @@ class LinkedList {
 
   append(newValue){    
     const newNode =  new Node(newValue);
-    
+    newNode.prev = this.tail;
     this.tail.next= newNode;
     this.tail = newNode;
     this.length++;
@@ -43,6 +45,7 @@ class LinkedList {
   prepend(newValue) {
     const newNode =  new Node(newValue);
     newNode.next = this.head;
+    this.head.prev =  newNode;
     this.head = newNode;
     this.length++;
     return this;
@@ -73,68 +76,20 @@ class LinkedList {
     }
   //  debugger;
 
-    const newNode = new Node(value);
-    
-  
-
-    /**PRIMERA  PRUEBA  ESTO  ES LA EXPLICACION DE COMO FUNCIONA LA INSERCION */
-    /*
-    //******Insertaré en el segundo nodo el nuevo nodo****
-    //aqui estan todos los nodos 10-->5-->16-->20 || insertar segundo nodo 999
-
-    //Comienzo haciendo referencia a header que tiene todos 
-    //los node
-    let refecenHead = this.head;
-    //Almaceno  desde el segundo nodo hacia adelante.
-    //NOTA: AL YO  HACER (refecenHead.next) SIMPLEMENTE ESTOY ATRVESANDO
-    //AL SIGUIENTE NODO PERO EN MEMORIO  ESTA EL O LOS NODOS ANTERIORES.    
-    //5-->16-->20-->null
-    let SecondNodeForward = refecenHead.next;
-    //Al heder  en su segundo nodo (next) se le inserta el nuevo nodo
-    //10-->5-->16-->20 : 
-    //resultado 10-->999-->null
-    refecenHead.next =newNode;
-    //En el Nodo nuevo inserto en su next  los nodos desde el segundo hacia delante 
-    //10-->999-->null :
-    //Result: 10-->999-->5-->16-->20-->null 
-    newNode.next = SecondNodeForward;
-    */
- 
-    /*    
-    SEGUNDO EJEMPLO DE REFERENCIA
-    */
-
-    // debugger;
-    // let  leader = this.head;
-    // let counter = 0;
-    // //ATRAVIESO LOS OBJETOS DESDE LA CABEZA
-    // //PERO  EL THIS.HEAD TIENE TODOS SUS OBJETOS
-    // //PERO YO ME POSICIONO EN EL INDEX DESDE DONDE VOY A 
-    // //INSERTAR.
-    
-    // while(counter != index) {
-    //   leader = leader.next;
-    //    counter++;
-    // }
-    // const holdingPointer = leader.next;
-    
-    // leader.next = newNode;
-    // newNode.next = holdingPointer;
-    /**Fin DEL SEGUNDO EJEMPLO  */
-
-
-//  debugger
-    
+    const newNode = new Node(value);   
     //Reference to the head
     // 10-->5__-->16-->20
     const leader = this.traverseToIndex(index-1); 
     // 16-->20
-    const holdingPointer = leader.next;
+    const follower = leader.next;
+    newNode.prev = leader;
     // //10-->5-->99-->null
     leader.next = newNode;
      //10-->5-->99-->16-->20
-    newNode.next = holdingPointer; 
+    newNode.next = follower; 
+    follower.prev = newNode;
     this.length++;
+    console.log(this);
     return this.printList();    
 
   }
@@ -163,27 +118,36 @@ class LinkedList {
     index = this.length -1;    
    }
 
-     const leader = this.traverseToIndex(index - 1 );
-     const unwantedNode = leader.next;
-     leader.next = unwantedNode.next;
-     this.length--;
+     const leader = this.traverseToIndex(index - 1 );   
+      const unwantedNode = leader.next;   
+      const follower =  unwantedNode.next;
+
+      leader.next = follower;
+      follower.prev = leader;  
+   
+      
+      this.length--;
+    console.log('this');
+    console.log(this);
     return this.printList();
   }
 
 
 }
 
-const myLinkedList = new LinkedList(10);
+const myLinkedList = new DoublyLinkedList(10);
 
 // console.log(myLinkedList);
 myLinkedList.append(5);
-myLinkedList.append(16);
-myLinkedList.append(20);
-// myLinkedList.prepend(1);
-myLinkedList.insert(1,999);
+myLinkedList.append(15);
+// myLinkedList.append(16);
+// myLinkedList.append(20);
+//  myLinkedList.prepend(1);
+//  console.log(myLinkedList.prepend(1));
+// myLinkedList.insert(1,999);
 
 console.log(myLinkedList.printList());
-console.log(myLinkedList.remove(0));
+console.log(myLinkedList.remove(1));
 
 
 // console.log(myLinkedList.printList());
