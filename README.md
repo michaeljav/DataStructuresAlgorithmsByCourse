@@ -44,8 +44,7 @@ It can tell us how well a problem is solved.
 > **An easy rule of thumb is any step that happens in the same indentation. So one after another, you add.
 > ![](Same%20indentations.png)
 > And anything that happens with indentation that is nested. You multiply, so, again, different inputs should have different variables.
-> ![](Different%20Indentation.png)
-> **
+> ![](Different%20Indentation.png) > **
 
 **Note:Drop Non Dominants**
 ![](Dominant%20Term.png)
@@ -127,8 +126,8 @@ this: is just refers to what object it's inside of.
   const object4 ={
   a: function(){
   Console.log(this);
-      }
-      }
+  }
+  }
 
 **//instantiation**
 
@@ -173,3 +172,16 @@ but it's still declare. it fills up this memory heap.
 ----> Call Stack
 this is where your code is read and executed.
 It tells you where you are in the program.
+
+---->Javascript is a single thread language that can be non-blocking?
+
+Asyncronous: for this we need javascript Run-Time environment which is part of the browser.
+Javascript Run-time environment is inside of the browser and has web apis, event loop , callback queue. This is not part of javascript
+
+//call stack
+
+//web api
+
+//callback queue
+
+// event loop
