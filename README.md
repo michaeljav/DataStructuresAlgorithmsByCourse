@@ -185,3 +185,9 @@ Javascript Run-time environment is inside of the browser and has web apis, event
 //callback queue
 
 // event loop
+
+
+##### Stack
+
+Uses Node of linked list to create a stack
+

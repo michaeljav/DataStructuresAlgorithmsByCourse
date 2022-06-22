@@ -1,34 +1,64 @@
-//
-//CALL STACK : FIRST IN LAST OUT FILO
-debugger;
-// console.log('1');
-// console.log('2');
-// console.log('3');
+//STACK
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class Stack {
+  constructor() {
+    this.top = null;
+    this.bottom = null;
+    this.length = 0;
+  }
+  peek() {
+   return this.top;
+  }
+  push(value){
+   const newNode = new Node(value);
+   if(this.length === 0){
+    this.top = newNode;
+    this.bottom = newNode;
+   }else {
+    const holdingPointer = this.top;
+    this.top = newNode;
+    this.top.next = holdingPointer;
+   }
+   this.length++;
+   return this;
+  }
+  pop() {
+ 
+    if (!this.top) {
+      return null;
+    }
+
+    //If it is going to be nothing in the stack delete the bottom node
+    if (this.top === this.bottom) {
+      this.bottom = null;
+    }
+    const holdingPointer  = this.top;
+    this.top = this.top.next;
+    this.length--;
+    
+    return this;
 
 
-// const one = () => {
-//   const two =() => {
-//     console.log('object');
-//   }
-//   two();
-// }
-// one();
 
-// let sec = 0;
-// function foo(){
-//   sec++;
-//   console.log(sec)
-//   foo();
-// }
+  }
+}
 
-// foo();
+const  myStack = new Stack();
 
-//call stack
-//Asincronous
-console.log('1');
-setTimeout(() => {
-  console.log('2');
-}, 2000);
-console.log('3');
-
-
+console.log(myStack.peek());
+let r=myStack.push('google');
+ r=myStack.push('udemy');
+ r=myStack.push('Discod');
+console.log(r)
+console.log(myStack.peek());
+console.log(myStack.pop());
+console.log(myStack.pop());
+console.log(myStack.pop());
+// console.log(myStack.pop());
