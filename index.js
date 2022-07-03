@@ -9,40 +9,18 @@ class Node {
 
 class Stack {
   constructor() {
-    this.top = null;
-    this.bottom = null;
-    this.length = 0;
+   this.array = [];
   }
   peek() {
-   return this.top;
+   return this.array[this.array.length-1];
   }
   push(value){
-   const newNode = new Node(value);
-   if(this.length === 0){
-    this.top = newNode;
-    this.bottom = newNode;
-   }else {
-    const holdingPointer = this.top;
-    this.top = newNode;
-    this.top.next = holdingPointer;
-   }
-   this.length++;
+   this.array.push(value);
    return this;
   }
   pop() {
- 
-    if (!this.top) {
-      return null;
-    }
-
-    //If it is going to be nothing in the stack delete the bottom node
-    if (this.top === this.bottom) {
-      this.bottom = null;
-    }
-    const holdingPointer  = this.top;
-    this.top = this.top.next;
-    this.length--;
-    
+  
+   this.array.pop();
     return this;
 
 
@@ -58,7 +36,8 @@ let r=myStack.push('google');
  r=myStack.push('Discod');
 console.log(r)
 console.log(myStack.peek());
+console.log(myStack.peek());
 console.log(myStack.pop());
-console.log(myStack.pop());
-console.log(myStack.pop());
+// console.log(myStack.pop());
+// console.log(myStack.pop());
 // console.log(myStack.pop());
